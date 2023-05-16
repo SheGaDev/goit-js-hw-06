@@ -12,15 +12,13 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-(() => {
-  const gallery = document.querySelector("ul.gallery");
-  const items = images.map(({url, alt}) => `<li><img src=${url} alt=${alt} width=350/></li>`);
-  gallery.insertAdjacentHTML("afterbegin", items.join("\n"));
-  gallery.style.cssText = `display: flex; 
+const gallery = document.querySelector("ul.gallery");
+const items = images.map(({ url, alt }) => `<li><img src=${url} alt=${alt} width=350/></li>`);
+gallery.insertAdjacentHTML("afterbegin", items.join("\n"));
+gallery.style.cssText = `display: flex; 
   gap: 15px;
   align-items: center; 
   justiny-content: center; 
   list-style: none; 
   margin: 0; 
   padding: 0;`;
-})();

@@ -1,18 +1,11 @@
-(() => {
-    const input = document.querySelector(`[data-length="6"]`);
-    let currentLength = 0;
-    input.addEventListener("input", changeInput)
-    input.addEventListener("blur", checkInput);
-    function changeInput(event) {
-        currentLength = event.currentTarget.value.length;
+const input = document.querySelector(`[data-length="6"]`);
+input.addEventListener("blur", checkInput);
+function checkInput(event) {
+    if (Number(input.getAttribute("data-length")) === event.currentTarget.value.length) {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+    } else {
+        input.classList.add("invalid");
+        input.classList.remove("valid");
     }
-    function checkInput() {
-        if (currentLength === 6) {
-            input.classList.add("valid");
-            input.classList.toggle("invalid");
-        } else {
-            input.classList.add("invalid");
-            input.classList.toggle("valid");
-        }
-    }
-})();
+}
